@@ -1,0 +1,40 @@
+name: Publish v1.0.0 once
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish single-file app
+        run: dotnet publish ClipCanvasMirror.csproj -c Release -r win-x64 --self-contained true -o release/app
+
+      - name: Create distribution ZIP
+        shell: pwsh
+        run: |
+          Copy-Item README.md release/app/README.md
+          Copy-Item LICENSE release/app/LICENSE
+          Compress-Archive -Path release/app/* -DestinationPath release/ClipCanvasMirror-v1.0.0-win-x64.zip
+
+      - name: Create v1.0.0 release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          target_commitish: main
+          name: Clip Canvas Mirror v1.0.0
+          body_path: RELEASE_NOTES.md
+          files: release/ClipCanvasMirror-v1.0.0-win-x64.zip
