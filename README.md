@@ -2,7 +2,19 @@
 
 Windows用の、イラスト制作向けリアルタイム確認ビューワーです。
 
-## ダウンロード
+## ⬇️ Windows版をダウンロード
+
+[![Clip Canvas Mirror v1.0.0をダウンロード](https://img.shields.io/badge/Windows版をダウンロード-v1.0.0-0078D4?style=for-the-badge&logo=windows11&logoColor=white)](https://github.com/huyusame1225-del/ClipCanvasMirror/releases/download/v1.0.0/ClipCanvasMirror-v1.0.0-win-x64.zip)
+
+### [ボタンが表示されない場合はこちらをクリック](https://github.com/huyusame1225-del/ClipCanvasMirror/releases/download/v1.0.0/ClipCanvasMirror-v1.0.0-win-x64.zip)
+
+> **初めて使う方へ:** 「Source code」ではなく、上の青いボタンから
+> `ClipCanvasMirror-v1.0.0-win-x64.zip` をダウンロードしてください。
+
+ZIPを展開して、フォルダー内の`ClipCanvasMirror.exe`を起動します。
+.NETの追加インストールは不要です。
+
+## その他のダウンロード方法
 
 一般利用者はGitHubの **Releases** ページから最新版の
 `ClipCanvasMirror-v*-win-x64.zip` をダウンロードし、展開後に
